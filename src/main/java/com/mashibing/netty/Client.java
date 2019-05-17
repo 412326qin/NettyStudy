@@ -10,8 +10,14 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.util.ReferenceCountUtil;
 
 public class Client {
-    public static void main(String[] args) {
-        new Client().clientStart();
+    public static void main(String[] args) throws Exception {
+    	long start = System.currentTimeMillis();
+    	for (int i = 0; i < 10; i++) {
+    		new Client().clientStart();
+//    		Thread.sleep(100);
+		}
+    	long end = System.currentTimeMillis();
+    	System.out.println(end-start);
     }
 
     private void clientStart() {

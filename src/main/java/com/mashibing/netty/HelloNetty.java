@@ -1,10 +1,12 @@
 package com.mashibing.netty;
 
-import com.mashibing.io.aio.Server;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.buffer.ByteBuf;
-import io.netty.buffer.Unpooled;
-import io.netty.channel.*;
+import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelHandlerContext;
+import io.netty.channel.ChannelInboundHandlerAdapter;
+import io.netty.channel.ChannelInitializer;
+import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
@@ -60,7 +62,7 @@ class Handler extends ChannelInboundHandlerAdapter {
         //super.channelRead(ctx, msg);
         System.out.println("server: channel read");
         ByteBuf buf = (ByteBuf)msg;
-
+        Thread.sleep(100);
         System.out.println(buf.toString(CharsetUtil.UTF_8));
 
         ctx.writeAndFlush(msg);
