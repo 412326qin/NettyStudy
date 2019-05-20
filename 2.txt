@@ -1,0 +1,10 @@
+营销火眼没有用户标识
+
+服务一体化性能规范代码修改：
+线程池，select*，1=1，synchronization类锁
+服务keys(*) 修改，前端实例化
+new ClassPathXmlApplicationContext("")修改 
+
+服务双中心异常分析
+
+康永改代码，回调支付宝接口，改过代
