@@ -25,6 +25,9 @@ public class Client4HelloWorldHandler extends ChannelInboundHandlerAdapter{
 //		cause.printStackTrace();
 		ctx.close();
 	}
+	/**
+	 * 结束远程调用时回调
+	 */
 	@Override
 	public void channelInactive(ChannelHandlerContext ctx) throws Exception{
 		System.out.println("channelInactive method run..");
