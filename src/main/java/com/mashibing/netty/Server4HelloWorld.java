@@ -30,9 +30,9 @@ public class Server4HelloWorld {
 		//设定通信模式为nio
 		bootstrap.channel(NioServerSocketChannel.class);
 		//ChannelOption.SO_SNDBUF发送缓冲区、ChannelOption.SO_RCVBUF接受缓冲区、ChannelOption.SO_KEEPALIVE开启心跳检测
-		bootstrap.option(ChannelOption.SO_SNDBUF,16*1024)
-				.option(ChannelOption.SO_RCVBUF, 16*1024)
-				.option(ChannelOption.SO_KEEPALIVE,true);
+		bootstrap//.option(ChannelOption.SO_SNDBUF,16*1024)
+				.option(ChannelOption.SO_RCVBUF, 16*1024);
+				//.option(ChannelOption.SO_KEEPALIVE,true);
 	}
 	/**
 	 * 监听处理逻辑
@@ -41,6 +41,7 @@ public class Server4HelloWorld {
 	 * @return
 	 * @throws InterruptedException 
 	 */
+//	public ChannelFuture doAccept(int port,ChannelHandler.Sharable){
 	public ChannelFuture doAccept(int port, final ChannelHandler... acceptorHandlers) throws InterruptedException{
 		/*
 		 * childHandler是服务端的Bootstrap独有的方法，适用于提供处理对象的

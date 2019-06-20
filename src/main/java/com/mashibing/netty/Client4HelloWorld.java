@@ -59,14 +59,14 @@ public class Client4HelloWorld {
 	public static void main(String[] args) {
 		Client4HelloWorld client = null;
 		ChannelFuture future = null;
+		Scanner s = null;
 		try{
 			client = new Client4HelloWorld();
 			future = client.doRequest("localhost", 9999, new Client4HelloWorldHandler());
 			
-			Scanner s = null;
 			while(true){
 				s = new Scanner(System.in);
-				System.out.println("enter message send to sever(enter 'exit' for close client");
+				System.out.println("enter message send to sever(enter 'exit' for close client)");
 				String line = s.nextLine();
 				if("exit".equals(line)){
 					//addListener - 增加监听，当某条件满足的时候，触发监听器
@@ -82,6 +82,7 @@ public class Client4HelloWorld {
 		}catch(Exception e){
 			e.printStackTrace();
 		}finally{
+			s.close();
 			if(null != future){
 				try {
 					future.channel().closeFuture().sync();

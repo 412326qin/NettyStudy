@@ -48,6 +48,7 @@ public class Server4HelloWorldHandler extends ChannelInboundHandlerAdapter {
 		//写操作自动释放缓存，避免内存溢出问题
 		ctx.writeAndFlush(Unpooled.copiedBuffer(line.getBytes("utf-8")));
 		//注意，如果调用改的是write方法。不会刷新缓存，缓存中的数据不会发送到客户端。必须再次调用flush方法才行
+		//write出去的一定是ByteBuf缓存对象
 //		ctx.write(Unpooled.copiedBuffer(line.getBytes("utf-8")));
 //		ctx.flush();
 	}
