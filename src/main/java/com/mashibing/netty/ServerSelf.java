@@ -94,6 +94,7 @@ class ServerSelfHandler extends ChannelInboundHandlerAdapter{
 		}
 		String message = "i'm reveive:" + line;
 		ctx.writeAndFlush(Unpooled.copiedBuffer(message.getBytes("utf-8")));
+//		ctx.close();
 	}
 	
 	@Override 

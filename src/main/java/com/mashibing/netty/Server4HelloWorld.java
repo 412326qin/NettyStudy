@@ -22,11 +22,13 @@ public class Server4HelloWorld {
 		init();
 	}
 	private void init(){
-		acceptorGroup = new NioEventLoopGroup();
+		//初始化线程组，构建线程组的时候，如果不传递参数，则默认构建的线程组数是CPU核心数量。
+		acceptorGroup = new NioEventLoopGroup(1);//参数传1代表线程组的线程数为1（单线程模型）
 		clientGroup = new NioEventLoopGroup();
 		bootstrap = new ServerBootstrap();
 		//绑定线程组
 		bootstrap.group(acceptorGroup,clientGroup);
+//		bootstrap.group(acceptorGroup,acceptorGroup);单线程模型
 		//设定通信模式为nio
 		bootstrap.channel(NioServerSocketChannel.class);
 		//ChannelOption.SO_SNDBUF发送缓冲区、ChannelOption.SO_RCVBUF接受缓冲区、ChannelOption.SO_KEEPALIVE开启心跳检测
@@ -84,12 +86,14 @@ public class Server4HelloWorld {
 			System.out.println("server started.");
 			//关闭链接的，回收资源
 			future.channel().closeFuture().sync();
+			System.out.println("server end.");
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally{
 			if(null != future){
 				try{
 					future.channel().closeFuture().sync();
+					System.out.println("server end.");
 				} catch(Exception e){
 					e.printStackTrace();
 				}

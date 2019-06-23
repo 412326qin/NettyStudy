@@ -61,7 +61,7 @@ class ClientHandler extends ChannelInboundHandlerAdapter {
         f.addListener(new ChannelFutureListener() {
             @Override
             public void operationComplete(ChannelFuture future) throws Exception {
-                System.out.println("msg send!");
+                System.out.println("msg  sezxgdsfnd!");
                 //ctx.close();
             }
         });
@@ -73,8 +73,10 @@ class ClientHandler extends ChannelInboundHandlerAdapter {
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         try {
             ByteBuf buf = (ByteBuf)msg;
+            System.out.println("channel read");
             System.out.println(buf.toString());
         } finally {
+        	System.out.println("channel read finally");
             ReferenceCountUtil.release(msg);
         }
     }
