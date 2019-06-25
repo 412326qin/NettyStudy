@@ -1,4 +1,4 @@
-package com.mashibing.netty;
+package com.mashibing.netty.fixedLength;
 
 import java.nio.charset.Charset;
 
