@@ -11,6 +11,14 @@ import java.util.Map.Entry;
 import org.junit.Test;
 
 public class CharsetTest {
+	private static String aa = "111";
+	
+	public CharsetTest(String aa){
+		this.aa = aa;
+	}
+	public CharsetTest(){
+
+	}
 
 	public static void main(String[] args) {
 		Map<String, Charset> map = Charset.availableCharsets();
@@ -19,8 +27,14 @@ public class CharsetTest {
 		}
 	}
 	@Test
-	public void test(){
-		System.out.println("CharsetTest.test()");
+	public String test(String aaa){
+		System.out.println(aaa);
+		return this.aa;
+	}
+	public /*static*/ void setCmd(String aaa){
+		System.out.println(aaa);
+		this.aa = aaa;
+		System.out.println("----" + aa);
 	}
 	@Test
 	public void charName() throws Exception{

@@ -6,12 +6,12 @@ import io.netty.bootstrap.ServerBootstrap;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelHandler.Sharable;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
-import io.netty.channel.ChannelHandler.Sharable;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
@@ -69,7 +69,11 @@ class NettyServer {
 
     }
 }
-
+/**
+ * ChannelInboundHandlerAdapter集成jar包4.1.35.Final版本
+ * ChannelHandlerAdapter继承jar包5.0.0.Alpha2
+ * @author 秦子尧 2019年6月23日 下午11:26:18
+ */
 @Sharable
 class Handler extends ChannelInboundHandlerAdapter {
     @Override

@@ -3,10 +3,8 @@ package com.mashibing.netty;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandler.Sharable;
-import io.netty.channel.socket.SocketChannel;
+import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.ChannelInboundHandlerAdapter;
-import io.netty.channel.ChannelInitializer;
 
 /**
  * @Sharable注解
@@ -19,10 +17,12 @@ import io.netty.channel.ChannelInitializer;
 				ch.pipeline().addLast(new XxxHandler());
 			}
 		});
- * @author 秦子尧 2019年6月10日 下午11:29:18
+ * ChannelInboundHandlerAdapter集成jar包4.1.35.Final版本
+ * ChannelHandlerAdapter继承jar包5.0.0.Alpha2
+ * @author 秦子尧 2019年6月23日 下午11:26:18
  */
 @Sharable
-public class Server4HelloWorldHandler extends ChannelInboundHandlerAdapter {
+public class Server4HelloWorldHandler extends ChannelHandlerAdapter {
 
 	/**
 	 * 业务处理逻辑
