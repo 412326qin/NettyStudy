@@ -11,7 +11,11 @@ import com.alibaba.fastjson.parser.ParserConfig;
 import com.mashibing.io.nio.CharsetTest;
 
 public class FastJsonDemo {
+	public void FastJsonDemo(){
+	}
 	public static void main(String[] args) {
+		String i = "\t";
+		System.out.println(i+"d");
 		/**
 		 * 必须是setXXX方法，不能是静态方法，不过static成员变量可以直接修改值。
 		 * 如果是1.2.58安全版本可以使用

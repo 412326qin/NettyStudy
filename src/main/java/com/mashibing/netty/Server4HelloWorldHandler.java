@@ -63,4 +63,23 @@ public class Server4HelloWorldHandler extends ChannelHandlerAdapter {
 		ctx.close();
 	}
 	
+	/**
+	 * 当连接建立成功后，触发的代码逻辑。
+	 * 在一次连接中只运行唯一一次
+	 * 通常用于实现连接确认和资源初始化
+	 */
+	@Override
+	public void channelActive(ChannelHandlerContext ctx){
+		System.out.println("ChannelActive is run..");
+	}
+	
 }
+
+
+
+
+
+
+
+
+
